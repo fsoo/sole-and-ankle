@@ -31,6 +31,9 @@ const ShoeCard = ({
       ? 'new-release'
       : 'default'
 
+  const flagText = variant=='on-sale' ? "Sale" : variant=='new-release' ? 'Just released!' : "";
+
+
   return (
     <Link href={`/shoe/${slug}`}>
       <Wrapper>
@@ -45,23 +48,55 @@ const ShoeCard = ({
         <Row>
           <ColorInfo>{pluralize('Color', numOfColors)}</ColorInfo>
         </Row>
+        <Flag className={variant}>{flagText}</Flag>
+     
       </Wrapper>
     </Link>
   );
 };
+
+const Flag = styled.div`
+  position: absolute;
+  font-weight: ${WEIGHTS.light};
+  font-size: 1rem;
+  top: 20px;
+  right: 0px;
+  color: white;
+  padding: 4px 6px 4px 6px;
+  border-radius: 4px;
+  width: fit-content;
+  background-color: green;
+  &.new-release {
+    background-color: blue;
+
+  }
+  &.on-sale {
+    background-color: red;
+
+  }
+  &.default {
+    display:none;
+  }
+  
+
+`;
 
 const Link = styled.a`
   text-decoration: none;
   color: inherit;
 `;
 
-const Wrapper = styled.article``;
+const Wrapper = styled.article`
+position:relative;
+  width: 400px;
+  `;
 
 const ImageWrapper = styled.div`
   position: relative;
 `;
 
-const Image = styled.img``;
+const Image = styled.img`
+  width:100%`;
 
 const Row = styled.div`
   font-size: 1rem;

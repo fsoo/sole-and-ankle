@@ -16,7 +16,7 @@ const ShoeIndex = ({ sortId, setSortId }) => {
         <Header>
           <Title>Running</Title>
           <Select
-            label="Sort"
+            label="Sort"            
             value={sortId}
             onChange={(ev) => setSortId(ev.target.value)}
           >
@@ -25,7 +25,7 @@ const ShoeIndex = ({ sortId, setSortId }) => {
           </Select>
         </Header>
         <Spacer size={34} />
-        <ShoeGrid />
+         <ShoeGrid /> 
       </MainColumn>
       <LeftColumn>
         <Breadcrumbs>
@@ -42,13 +42,33 @@ const ShoeIndex = ({ sortId, setSortId }) => {
   );
 };
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  display: flex;
+  width: 100%;
+  flex-direction: row-reverse;
+  justify-content: space-between;
 
-const LeftColumn = styled.div``;
+`;
 
-const MainColumn = styled.div``;
+const LeftColumn = styled.div`
+    display: flex;
+    flex-direction:column;
+    /* justify-content: space-around; */
+    align-items: flex-start;
+    padding-top: 20px;
+  `;
 
-const Header = styled.header``;
+
+const MainColumn = styled.div`
+  width:100%;
+  padding-left: 40px;
+`;
+const Header = styled.header`
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  `;
 
 const Title = styled.h2`
   font-size: 1.5rem;
